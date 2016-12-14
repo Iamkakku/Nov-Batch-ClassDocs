@@ -1,0 +1,49 @@
+--get all employees whose job_id is IT_PROG
+select * from hr.employees where  job_id='IT_PROG';
+
+--get all employers whose job_id is same as david
+select * from hr.employees where job_id in (select job_id from hr.employees where first_name='Neena');
+
+--create a table
+create table students (
+id number(10),
+name varchar2(20) not null,
+address varchar2(30),
+primary key(id)
+)
+
+--insert data into table
+insert into students values(1,'Sanita','Fremont');
+
+--insert specfic columns data into table
+insert into students(id,name,phone) values(2,'george',67889);
+
+--modify existing table
+alter table students add phone number(10) unique;
+
+--update the data for a column
+update students set phone=90876 where id=1;
+
+--get sum of salary of employers according to the groups-- all columns used in select should be part of group by or any group function
+select department_id,sum(salary) "sum of sal" from hr.employees group by department_id;
+
+--get sum of salary of employers according to the groups having department_id=90 
+-- having is like where clause which is used with group by
+select department_id,sum(salary) "sum of sal" from hr.employees group by department_id having department_id=90;
+
+--inner join - select first_name,employee_id, department_name for employees
+select e.first_name,e.employee_id,d.department_name  from hr.employees e inner join hr.departments d  on e.department_id = d.department_id;
+
+--cartesian product or join without any condition
+select e.first_name,e.employee_id,d.department_name  from hr.employees e,hr.departments d;
+
+--left join - returns all rows from the left table, even if there are no matches in the right table
+--select first_name,employee_id, department_name for employees
+select e.first_name,e.employee_id,d.department_name,d.department_id  from hr.employees e left join hr.departments d  on e.department_id = d.department_id;
+
+--right join - returns all rows from the right table, even if there are no matches in the left table
+--select first_name,employee_id, department_name for employees
+select e.first_name,e.employee_id,d.department_name,d.department_id  from hr.employees e right join hr.departments d  on e.department_id = d.department_id;
+
+--describe table helps to know column names and all constraints, details of columns in given table
+desc students;

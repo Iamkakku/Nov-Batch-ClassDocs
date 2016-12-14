@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ca09ab48-16d1-41fe-a679-356e7c9e9487" activeEnvironment="Default" name="GlobalWeatherService" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d590d0fc-679b-4d2a-af82-337b658ddb32" wsaVersion="NONE" name="GlobalWeatherSoap12" type="wsdl" bindingName="{http://www.webserviceX.NET}GlobalWeatherSoap12" soapVersion="1_2" anonymous="optional" definition="http://www.webservicex.com/globalweather.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.webservicex.com/globalweather.asmx?WSDL"><con:part><con:url>http://www.webservicex.com/globalweather.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.webserviceX.NET" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.webserviceX.NET">
+      <s:element name="GetWeather">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CityName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWeatherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWeatherResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCitiesByCountry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCitiesByCountryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCitiesByCountryResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetWeatherSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWeather"/>
+  </wsdl:message>
+  <wsdl:message name="GetWeatherSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWeatherResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountrySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCitiesByCountry"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountrySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCitiesByCountryResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetWeatherHttpGetIn">
+    <wsdl:part name="CityName" type="s:string"/>
+    <wsdl:part name="CountryName" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetWeatherHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountryHttpGetIn">
+    <wsdl:part name="CountryName" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountryHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetWeatherHttpPostIn">
+    <wsdl:part name="CityName" type="s:string"/>
+    <wsdl:part name="CountryName" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetWeatherHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountryHttpPostIn">
+    <wsdl:part name="CountryName" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountryHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:portType name="GlobalWeatherSoap">
+    <wsdl:operation name="GetWeather">
+      <wsdl:documentation>Get weather report for all major cities around the world.</wsdl:documentation>
+      <wsdl:input message="tns:GetWeatherSoapIn"/>
+      <wsdl:output message="tns:GetWeatherSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <wsdl:documentation>Get all major cities by country name(full / part).</wsdl:documentation>
+      <wsdl:input message="tns:GetCitiesByCountrySoapIn"/>
+      <wsdl:output message="tns:GetCitiesByCountrySoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GlobalWeatherHttpGet">
+    <wsdl:operation name="GetWeather">
+      <wsdl:documentation>Get weather report for all major cities around the world.</wsdl:documentation>
+      <wsdl:input message="tns:GetWeatherHttpGetIn"/>
+      <wsdl:output message="tns:GetWeatherHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <wsdl:documentation>Get all major cities by country name(full / part).</wsdl:documentation>
+      <wsdl:input message="tns:GetCitiesByCountryHttpGetIn"/>
+      <wsdl:output message="tns:GetCitiesByCountryHttpGetOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GlobalWeatherHttpPost">
+    <wsdl:operation name="GetWeather">
+      <wsdl:documentation>Get weather report for all major cities around the world.</wsdl:documentation>
+      <wsdl:input message="tns:GetWeatherHttpPostIn"/>
+      <wsdl:output message="tns:GetWeatherHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <wsdl:documentation>Get all major cities by country name(full / part).</wsdl:documentation>
+      <wsdl:input message="tns:GetCitiesByCountryHttpPostIn"/>
+      <wsdl:output message="tns:GetCitiesByCountryHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GlobalWeatherSoap" type="tns:GlobalWeatherSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetWeather">
+      <soap:operation soapAction="http://www.webserviceX.NET/GetWeather" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <soap:operation soapAction="http://www.webserviceX.NET/GetCitiesByCountry" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GlobalWeatherSoap12" type="tns:GlobalWeatherSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetWeather">
+      <soap12:operation soapAction="http://www.webserviceX.NET/GetWeather" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <soap12:operation soapAction="http://www.webserviceX.NET/GetCitiesByCountry" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GlobalWeatherHttpGet" type="tns:GlobalWeatherHttpGet">
+    <http:binding verb="GET"/>
+    <wsdl:operation name="GetWeather">
+      <http:operation location="/GetWeather"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <http:operation location="/GetCitiesByCountry"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GlobalWeatherHttpPost" type="tns:GlobalWeatherHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="GetWeather">
+      <http:operation location="/GetWeather"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <http:operation location="/GetCitiesByCountry"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GlobalWeather">
+    <wsdl:port name="GlobalWeatherSoap" binding="tns:GlobalWeatherSoap">
+      <soap:address location="http://www.webservicex.com/globalweather.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="GlobalWeatherSoap12" binding="tns:GlobalWeatherSoap12">
+      <soap12:address location="http://www.webservicex.com/globalweather.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="GlobalWeatherHttpGet" binding="tns:GlobalWeatherHttpGet">
+      <http:address location="http://www.webservicex.com/globalweather.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="GlobalWeatherHttpPost" binding="tns:GlobalWeatherHttpPost">
+      <http:address location="http://www.webservicex.com/globalweather.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.webservicex.com/globalweather.asmx</con:endpoint></con:endpoints><con:operation id="71f64de9-86bb-4f2f-b4be-35651839e82a" isOneWay="false" action="http://www.webserviceX.NET/GetCitiesByCountry" name="GetCitiesByCountry" bindingOperationName="GetCitiesByCountry" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1d8398ce-c440-4675-a88d-613878d28575" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.com/globalweather.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webserviceX.NET">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <web:GetCitiesByCountry>\r
+         <!--Optional:-->\r
+         <web:CountryName>IND</web:CountryName>\r
+      </web:GetCitiesByCountry>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/GlobalWeatherSoap/GetCitiesByCountryRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="7d7c97eb-505a-45b2-846b-03f1e6833cec" isOneWay="false" action="http://www.webserviceX.NET/GetWeather" name="GetWeather" bindingOperationName="GetWeather" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9558ce53-09b0-4b6d-aa24-5a1a09173219" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.com/globalweather.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webserviceX.NET">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <web:GetWeather>\r
+         <!--Optional:-->\r
+         <web:CityName>CA</web:CityName>\r
+         <!--Optional:-->\r
+         <web:CountryName>US</web:CountryName>\r
+      </web:GetWeather>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/GlobalWeatherSoap/GetWeatherRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="767b9625-49c7-47e6-9e97-8ea2e8d47828" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="b3d204d7-b5b3-405b-a91b-182288e1db5b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" id="0c29060b-9f08-4633-a0a8-3d392c75cbc0" name="GetCitiesByCountry - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GlobalWeatherSoap12</con:interface><con:operation>GetCitiesByCountry</con:operation><con:request name="GetCitiesByCountry - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="8f6794c6-a02c-4f8b-946b-7abd4f873946"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.com/globalweather.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webserviceX.NET">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <web:GetCitiesByCountry>\r
+         <!--Optional:-->\r
+         <web:CountryName>IND</web:CountryName>\r
+      </web:GetCitiesByCountry>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="fd8e8b91-67f7-4683-8c82-6642bcb03813" name="SOAP Response"/><con:assertion type="Valid HTTP Status Codes" id="7c0720e5-a9f6-43a3-98a6-10f4f7415239" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="5a2b5724-2b5a-4a09-8b0f-5e8fe99ea2ee" name="Invalid HTTP Status Codes"><con:configuration><codes>500,404</codes></con:configuration></con:assertion><con:assertion type="Schema Compliance" id="43b7fa0b-b284-4a99-9591-3f0ad398eb6d" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="Simple Contains" id="d3bd1940-2644-42e1-b670-c0447bcf9fa6" name="Contains"><con:configuration><token>Agra</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="9ea4b692-c7eb-472a-a91b-4d1676b92d84" name="Kanpur"><con:configuration><token/><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="0d7d52c8-8879-4717-b3da-b0126bbbd350" name="Not Contains"><con:configuration><token>Fremont</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="ff070246-e3c5-4565-b363-e0e1d103cf4a" name="Contains2"><con:configuration><token>Dublin</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="9d4cb6a8-35f7-458e-b725-5d1dc8d7fdd3" name="CityAssertion"><con:configuration><token>City</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="4c5d81b8-67ef-4bb0-8279-c2d7e223fd5a" name="XPath Match"><con:configuration/></con:assertion><con:assertion type="XPath Match" id="ff3c3085-77bc-468e-b35b-1e901dd0e888" name="XPath Match 1"><con:configuration><path>declare namespace ns1='http://www.webserviceX.NET';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+//ns1:GetCitiesByCountryResponse</path><content><![CDATA[<GetCitiesByCountryResponse xmlns="http://www.webserviceX.NET" xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <GetCitiesByCountryResult><![CDATA[<NewDataSet>
+  <Table>
+    <Country>British Indian Ocean Territory</Country>
+    <City>Diego Garcia</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Ahmadabad</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Akola</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Aurangabad Chikalthan Aerodrome</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Bombay / Santacruz</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Bilaspur</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Bhuj-Rudramata</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Belgaum / Sambra</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Bhopal / Bairagarh</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Bhaunagar</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Goa / Dabolim Airport</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Indore</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Jabalpur</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Khandwa</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Kolhapur</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Nagpur Sonegaon</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Rajkot</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Sholapur</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Agartala</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Siliguri</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Bhubaneswar</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Calcutta / Dum Dum</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Car Nicobar</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Gorakhpur</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Gauhati</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Gaya</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Imphal Tulihal</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Jharsuguda</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Jamshedpur</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>North Lakhimpur</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Dibrugarh / Mohanbari</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Port Blair</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Patna</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>M. O. Ranchi</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Agra</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Allahabad / Bamhrauli</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Amritsar</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Varanasi / Babatpur</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Bareilly</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Kanpur / Chakeri</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>New Delhi / Safdarjung</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>New Delhi / Palam</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Gwalior</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Hissar</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Jhansi</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Jodhpur</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Jaipur / Sanganer</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Kota Aerodrome</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Lucknow / Amausi</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Satna</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Udaipur Dabok</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Bellary</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Vijayawada / Gannavaram</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Coimbatore / Peelamedu</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Cochin / Willingdon</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Cuddapah</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Hyderabad Airport</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Madurai</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Mangalore / Bajpe</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Madras / Minambakkam</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Tiruchchirapalli</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Thiruvananthapuram</City>
+  </Table>
+  <Table>
+    <Country>India</Country>
+    <City>Vellore</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Ujung Pandang / Hasanuddin</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Bau-Bau / Beto Ambiri</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Kendari / Woltermon-Ginsidi</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Biak / Mokmer</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Nabire</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Kokonao / Timuka</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Serui / Yendosa</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Enarotali</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Sarmi</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Jayapura / Sentani</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Wamena / Wamena</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Merauke / Mopah</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Tanah Merah / Tanah Merah</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Galela / Gamarmalamu</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Gorontalo / Jalaluddin</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Tahuna</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Toli-Toli / Lalos</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Palu / Mutiara</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Menado / Dr. Sam Ratulangi</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Poso / Kasiguncu</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Ternate / Babullah</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Luwuk / Bubung</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Amahai</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Labuha / Taliabu</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Saumlaki</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Sanana</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Ambon / Pattimura</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Namlea</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Fak-Fak / Torea</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Kaimana / Utarom</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Manokwari / Rendani</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Sorong / Jefman</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Sabang / Cut Bau</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Menggala / Astra Ksetra</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Tasikmalaya / Cibeureum</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Madiun / Iswahyudi</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Malang / Abdul Rahkmansaleh</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Pakanbaru / Simpangtiga</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Curug / Budiarto</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Bandung / Husein</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Jakarta Halim Perdanakusuma</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Jakarta / Soekarno-Hatta</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Jogyakarta / Adisucipto</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Kalijati</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Cilacap</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Semarang / Ahmadyani</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Telukbetung / Beranti</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Tanjungpandan / Buluh Tumbang</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Pangkalpinang / Pangkalpinang</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Tanjungpinang / Kijang</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Singkep / Dabo</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Gunung Sitoli / Binaka</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Padang / Tabing</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Medan / Polonia</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Sibolga / Pinangsori</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Singkawang Ii</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Ketapang / Rahadi Usmaman</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Ranai / Ranai</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Pontianak / Supadio</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Sintang</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Jambi / Sultan Taha</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Kerinci / Depati Parbo</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Bengkulu / Padangkemiling</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Palembang / Talangbetutu</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Rengat / Japura</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Meulaboh / Cut Nyak Dhien</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Lhokseumawe / Malikussaleh</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Banda Aceh / Blangbintang</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Banjarmasin / Syamsuddin Noor</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Pangkalan Bun / Iskandar</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Kotabaru</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Muaratewe / Beringin</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Palangkaraya / Panarung</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Maumere / Wai Oti</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Kupang / El Tari</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Larantuka</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Alor / Mali</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Rote / Baa</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Sabu / Tardamu</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Longbawan / Juvai Semaring</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Tanjung Selor</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Tanjung Redep / Berau</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Balikpapan / Sepinggan</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Tarakan / Juwata</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Samarinda / Temindung</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Ampenan / Selaparang</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Bima</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Denpasar / Ngurah-Rai</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Sumbawa Besar / Sumbawa Besar</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Waingapu / Mau Hau</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Surabaya / Juanda</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Surabaya / Perak</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Surakarta / Adisumarmo</City>
+  </Table>
+  <Table>
+    <Country>Indonesia</Country>
+    <City>Surabaya</City>
+  </Table>
+</NewDataSet>]]]]>><![CDATA[</GetCitiesByCountryResult>
+</GetCitiesByCountryResponse>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/GlobalWeatherSoap/GetCitiesByCountryRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="e81cf5a1-d7df-4da2-a6ee-15b89a73bcfb" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 2" searchProperties="true"><con:settings/><con:testStep type="request" id="0f60c085-ebb0-4b76-b987-38e2dacdf2ac" name="GetWeather - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GlobalWeatherSoap12</con:interface><con:operation>GetWeather</con:operation><con:request name="GetWeather - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9a9bc230-5160-4198-81bf-4823269ff55e"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.com/globalweather.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webserviceX.NET">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <web:GetWeather>\r
+         <!--Optional:-->\r
+         <web:CityName>CA</web:CityName>\r
+         <!--Optional:-->\r
+         <web:CountryName>US</web:CountryName>\r
+      </web:GetWeather>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4d8620c6-d3d7-455a-9d73-d5713a622b15" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/GlobalWeatherSoap/GetWeatherRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

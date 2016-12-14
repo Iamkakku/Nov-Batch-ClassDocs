@@ -1,0 +1,167 @@
+SDLC - Software Development Life Cycle - It is steps or phases that provide a model for development and life cycle management of application or software.
+ALM - Application LifeCycle Management
+
+	Planning 
+	Analysis
+	Design
+	Implement
+	Testing
+	Maintenance
+	
+	
+	Goal : Develop and maintain the product/application.
+	
+	Prelimanary Analysis : Owner of business comes up with certain requirements.
+	
+	Requirements Definition :  Analyse end user requirement and remove any inconsistency.
+	Analyse adv and disadv of requirement and make development of product/application cost effective.
+	
+	Client/EndCustomer,ProductOwner 
+	Prod/Live : Feedback
+	            Reviews
+	            Complaints
+			
+				Business Analyst, Product Manager/Owner
+				
+	Design: Come up with architecture and flow diagrams of application.
+	
+	Architect, UI Designer
+	
+	SRS, BRD documents.
+	
+	Development: develop the application as per requirements and architeture.
+	FrontEndDeveloper, WebDeveloper, BackEndDeveloper , App Developer, FullStack Developer, DBA - Db
+	
+	UML Diagrams:
+	
+	UseCaseDigram - actors and their responsibilties or functionalities accrding to actor/user
+	SequenceDiagram - step by step process flow
+	ClassDigrams - defining varibales and methods/ properties and actions for given behaviour
+	ActivityDigram - flow digram
+	WireFrames - postioning the UI elements
+	
+	Integration and Testing: Where we test the application against given requirements to assurethe quality of the application.
+	
+	QualityEngineer/Analyst, QA, QE, TestEngineer, Tester
+	
+	Acceptance, install, deployment - Live
+	
+	Deployment - deploy application package into a server machine 
+	
+	Build/Deployment/Release Engineer
+	
+	Maintenance -  to provide support w.r.to application usage for the end user.
+	ProdSupport / Operations / CutomerSupport
+	
+	Evaluation
+	
+	Disposal
+	
+	**************
+	
+	Dev Sit uat prod
+	
+	Dev qa1 qa2 live
+	
+	Dev qa stage prod/live
+	
+	https://dev.talentscreen.io/
+	
+	https://qa1.talentscreen.io/
+	https://sit.talentscreen.io/
+	
+	https://qa2.talentscreen.io/
+	https://uat.talentscreen.io/
+	
+	https://talentscreen.io/
+	
+	https://amazon.com
+	
+	*******************
+	
+	StakeHolder - A person , group, Organisation who is effected by project/ those who influence project directly or indirectly.
+	BA, EndUser,Customer, Developer, Tester
+	***************
+	
+	
+	enhancement
+	
+	CR - change request
+	
+	*****************************
+	Agile MEthodology:
+
+
+Scrum, Xp and there are many other processes that implemement Agile methodology as a framework
+
+Scrum
+
+Xp - xtreme programming
+
+TDD - test driven development - tests are driving development.
+
+
+Terms:
+
+
+Sprint - 1-4 weeks
+
+ProductOwner / BA- represent enduser or he is voice of business owner...
+
+ScrumMaster / PM 
+
+ScrumTeam - 7+/- 2 , 4 developers, 2 testers, one lead
+
+Product Backlog - whole set of requirements finalised by PO
+
+SprintBacklog - Sprint requirements choosen from product backlog
+
+
+UserStory - individual requirements divided to team members
+
+DailyStandUpMeeting - 15-20 mins, what you have done so far, any issues to be discussed which is blocking your tasks, what you are going to do today
+
+Sprint Planning meeeting - Intially before sprint starts to finalise on sprint backlog, estimations - story points
+
+Sprint Review Meeting - product review - i.e., at the end of sprint to demo the application developed so far to entire team.
+
+Sprint Retrospetive meeting - process review , 
+
+burndownchart - graphical representation of how much work needs to be done vs  remaining time
+
+kanban - big board which describes all digrams and tasks going on in sprint
+
+https://blog.taiga.io/agile-terms-you-must-know.html
+
+
+
+TDD, BDD.
+ContinousDelivery, ContinousIntegration
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

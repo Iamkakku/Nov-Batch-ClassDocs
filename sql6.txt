@@ -1,0 +1,89 @@
+--write a query to select first_name and hiredate of employees who were hired after employee Steven.
+--select first_name, hire_date from hr.employees where hire_date > (select hire_date from hr.employees where first_name ='Steven' and last_name='King');
+
+
+--query to find employees who report to king.
+--select * from hr.employees where manager_id = (select  employee_id from hr.employees where last_name = 'King' and manager_id is null);
+
+--query to find top salaried employee details in each department.
+--sub query fetches max sal in each dept, main query should fecth employees with same max sal and deptid
+--select  max(salary), department_id from hr.employees group by department_id;
+--select * from hr.employees where (salary,department_id) in (select max(salary), department_id from hr.employees group by department_id);
+
+--query to find employee details of second highest salaried person.
+--select * from hr.employees where salary = (select max(salary) from hr.employees where salary not in (select max(salary) from hr.employees));
+
+--query to find min sal under each job category in specific  department.
+--select min(salary),   department_id, job_id from   hr.employees group by department_id, job_id order by department_id desc
+
+
+--query to find top 5 highest salaries
+--select * from (select distinct(salary) from hr.employees order by salary desc) where rownum<=5;
+
+
+create sequence id_seq start with 1 increment by 1 maxvalue 100000 nocache nocycle
+
+
+create table students(
+
+sid number primary key,
+name varchar2(20),
+joining_date date
+
+)
+update students set name='joseph' where sid=2
+delete from students  where sid= 2
+drop table students
+Flashback  table  students  to before drop
+
+insert into students values (id_seq.nextval, 'roy', sysdate);
+
+commit;
+
+insert into students values (id_seq.nextval, 'jos', sysdate);
+
+
+insert into students values (id_seq.nextval, 'aluka', sysdate);
+savepoint ab;
+
+update students set name='rithu' where sid=2;
+savepoint cd;
+
+update students set name='hima' where sid=2;
+
+rollback to  ab;
+
+
+select * from users;
+
+
+create  or replace view my_emp_view
+
+as
+
+(select e.employee_id, e.first_name, d.department_name, l.country_id from
+
+hr.employees e join hr.departments d
+
+on e.department_id = d.department_id
+
+join hr.locations l
+
+on d.location_id = l.location_id);
+
+
+create or replace trigger tg1
+before insert on students
+for each row
+begin
+:new.sid := id_seq.nextval;
+end;
+
+
+
+
+
+
+
+
+

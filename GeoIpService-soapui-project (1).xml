@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b90335ca-2b2a-4ea0-b808-589f80e432fd" activeEnvironment="Default" name="GeoIpService" resourceRoot="" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="99283e02-3a80-428d-ac62-3614fa364847" wsaVersion="NONE" name="IP2GeoSoap12" type="wsdl" bindingName="{http://ws.cdyne.com/}IP2GeoSoap12" soapVersion="1_2" anonymous="optional" definition="http://ws.cdyne.com/ip2geo/ip2geo.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://ws.cdyne.com/ip2geo/ip2geo.asmx?wsdl"><con:part><con:url>http://ws.cdyne.com/ip2geo/ip2geo.asmx?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://ws.cdyne.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.cdyne.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>Our system uses a multiple sources for resolution.  Including a host database, trace route information, and other systems.  Resolves IP addresses to Organization, Country, City, and State/Province, Latitude, Longitude.  In most US cities it will also provide some extra information such as Area Code, and more.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.cdyne.com/">
+      <s:element name="ResolveIP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="licenseKey" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResolveIPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResolveIPResult" type="tns:IPInformation"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IPInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="StateProvince" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Organization" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AreaCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="TimeZone" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="HasDaylightSavings" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Certainty" type="s:short"/>
+          <s:element minOccurs="0" maxOccurs="1" name="RegionName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IPInformation" nillable="true" type="tns:IPInformation"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ResolveIPSoapIn">
+    <wsdl:part name="parameters" element="tns:ResolveIP"/>
+  </wsdl:message>
+  <wsdl:message name="ResolveIPSoapOut">
+    <wsdl:part name="parameters" element="tns:ResolveIPResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ResolveIPHttpGetIn">
+    <wsdl:part name="ipAddress" type="s:string"/>
+    <wsdl:part name="licenseKey" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ResolveIPHttpGetOut">
+    <wsdl:part name="Body" element="tns:IPInformation"/>
+  </wsdl:message>
+  <wsdl:message name="ResolveIPHttpPostIn">
+    <wsdl:part name="ipAddress" type="s:string"/>
+    <wsdl:part name="licenseKey" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ResolveIPHttpPostOut">
+    <wsdl:part name="Body" element="tns:IPInformation"/>
+  </wsdl:message>
+  <wsdl:portType name="IP2GeoSoap">
+    <wsdl:operation name="ResolveIP">
+      <wsdl:documentation>Use a License Key of 0 for Testing</wsdl:documentation>
+      <wsdl:input message="tns:ResolveIPSoapIn"/>
+      <wsdl:output message="tns:ResolveIPSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IP2GeoHttpGet">
+    <wsdl:operation name="ResolveIP">
+      <wsdl:documentation>Use a License Key of 0 for Testing</wsdl:documentation>
+      <wsdl:input message="tns:ResolveIPHttpGetIn"/>
+      <wsdl:output message="tns:ResolveIPHttpGetOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IP2GeoHttpPost">
+    <wsdl:operation name="ResolveIP">
+      <wsdl:documentation>Use a License Key of 0 for Testing</wsdl:documentation>
+      <wsdl:input message="tns:ResolveIPHttpPostIn"/>
+      <wsdl:output message="tns:ResolveIPHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IP2GeoSoap" type="tns:IP2GeoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ResolveIP">
+      <soap:operation soapAction="http://ws.cdyne.com/ResolveIP" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IP2GeoSoap12" type="tns:IP2GeoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ResolveIP">
+      <soap12:operation soapAction="http://ws.cdyne.com/ResolveIP" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IP2GeoHttpGet" type="tns:IP2GeoHttpGet">
+    <http:binding verb="GET"/>
+    <wsdl:operation name="ResolveIP">
+      <http:operation location="/ResolveIP"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IP2GeoHttpPost" type="tns:IP2GeoHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="ResolveIP">
+      <http:operation location="/ResolveIP"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IP2Geo">
+    <wsdl:documentation>Our system uses a multiple sources for resolution.  Including a host database, trace route information, and other systems.  Resolves IP addresses to Organization, Country, City, and State/Province, Latitude, Longitude.  In most US cities it will also provide some extra information such as Area Code, and more.</wsdl:documentation>
+    <wsdl:port name="IP2GeoSoap" binding="tns:IP2GeoSoap">
+      <soap:address location="http://ws.cdyne.com/ip2geo/ip2geo.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="IP2GeoSoap12" binding="tns:IP2GeoSoap12">
+      <soap12:address location="http://ws.cdyne.com/ip2geo/ip2geo.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="IP2GeoHttpGet" binding="tns:IP2GeoHttpGet">
+      <http:address location="http://ws.cdyne.com/ip2geo/ip2geo.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="IP2GeoHttpPost" binding="tns:IP2GeoHttpPost">
+      <http:address location="http://ws.cdyne.com/ip2geo/ip2geo.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://ws.cdyne.com/ip2geo/ip2geo.asmx</con:endpoint></con:endpoints><con:operation id="b25ace0a-d744-4c17-a9ae-8e42ef789c44" isOneWay="false" action="http://ws.cdyne.com/ResolveIP" name="ResolveIP" bindingOperationName="ResolveIP" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="135e682b-c4c0-4cda-8b18-d7eb3292a6ab" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ws.cdyne.com/ip2geo/ip2geo.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ws="http://ws.cdyne.com/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ws:ResolveIP>\r
+         <!--Optional:-->\r
+         <ws:ipAddress>2601:641:100:3a16:f862:eb17:da93:5407</ws:ipAddress>\r
+         <!--Optional:-->\r
+         <ws:licenseKey>43743985749jdk930940</ws:licenseKey>\r
+      </ws:ResolveIP>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.cdyne.com/IP2GeoSoap/ResolveIPRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="695b08d0-23c0-469e-b1e1-785aaccf03e1" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="2e7f12bd-b5ea-4a0d-b638-499ea246528d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="JDBC Request" id="daf39676-5252-4659-a607-b1746b4c96ec" disabled="true"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:query>select * from customers;</con:query><con:properties/></con:config></con:testStep><con:testStep type="properties" name="Properties" id="a632e6e1-ed03-4d8a-bf4c-c976b2973165"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:source>C:/Users/Vinay Pothu/Desktop/ip.properties</con:source><con:properties><con:property><con:name>ip</con:name><con:value>2601:641:100:3a16:f862:eb17:da93:5407</con:value></con:property><con:property><con:name>licenseKey</con:name><con:value>4783897434903849820</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="transfer" name="PropertyTransfer" id="0cb510c6-bd11-468e-9e18-12dea8cf17c9"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ip</con:name><con:sourceType>ip</con:sourceType><con:sourceStep>Properties</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>ResolveIP - Request 1</con:targetStep><con:targetPath>declare namespace ws="http://ws.cdyne.com/"
+//ws:ipAddress </con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>licenseKey</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>ResolveIP - Request 1</con:sourceStep><con:sourcePath/><con:targetType>Request</con:targetType><con:targetStep>ResolveIP - Request 1</con:targetStep><con:targetPath>declare namespace ws="http://ws.cdyne.com/"
+//ws:licenseKey</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" id="5f21735c-3962-4c15-a2aa-6855d362bdc9" name="ResolveIP - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>IP2GeoSoap12</con:interface><con:operation>ResolveIP</con:operation><con:request name="ResolveIP - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5b4f87f9-4534-487e-93d9-bd9fb4b76bcb"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ws.cdyne.com/ip2geo/ip2geo.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ws="http://ws.cdyne.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ws:ResolveIP>
+         <!--Optional:-->
+         <ws:ipAddress>2601:641:100:3a16:f862:eb17:da93:5407</ws:ipAddress>
+         <!--Optional:-->
+         <ws:licenseKey/>
+      </ws:ResolveIP>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="dcdab278-8b3e-4505-896c-defc1152191e" name="SOAP Response"/><con:assertion type="Simple Contains" id="047b84ec-4cae-4b83-8abe-66ba736c7665" name="Contains"><con:configuration><token>Country</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="69ae2b71-2ce9-4aea-9624-3457f2f3f8d5" name="ContainsValue"><con:configuration><token>United</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="695888ec-8b0c-4248-82a7-063d3a8c92bf" name="XPath Match"><con:configuration><path>declare namespace ns1='http://ws.cdyne.com/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+//ns1:Certainty</path><content>90</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="4abc02c7-3e9e-4e5a-b562-a4f27abe5cac" name="Invalid HTTP Status Codes"><con:configuration><codes>400,500</codes></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="42d289b5-a4fc-4c12-8e4e-4299a2644e58" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Schema Compliance" id="44f457e4-36d5-4004-8f24-fa1318adafe9" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.cdyne.com/IP2GeoSoap/ResolveIPRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="goto" name="Conditional Goto" id="0f63d5b0-db4e-410e-a7c7-01e439acdd30"><con:settings/><con:config xsi:type="con:GotoStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:condition><con:name>Condition 1</con:name><con:type>XPATH</con:type><con:expression>declare namespace ns="http://ws.cdyne.com/";
+exists(//ns:Country)</con:expression><con:targetStep>ManualTestStep</con:targetStep></con:condition></con:config></con:testStep><con:testStep type="delay" name="500" id="647ef0ea-333e-489c-b6c3-6a0f41282b33"><con:settings/><con:config><delay>1000</delay></con:config></con:testStep><con:testStep type="groovy" name="BasicGroovyScript" id="e77b2550-3172-4d48-b721-5730f20aab12"><con:settings/><con:config><script>def a = 20;
+def b = 20;
+def c = a+b;
+def greet = "Hello World";
+log.info("result is : "+c);
+log.info(greet);
+
+if(a>b){
+	log.info("a is greater");
+}else if(b>a){
+	log.info("b is greater");
+}else{
+	log.info("both are equal");
+}
+
+</script></con:config></con:testStep><con:testStep type="manualTestStep" name="ManualTestStep" id="5bcfedbe-8aef-469f-b0d6-7c3fd6aab26e"><con:description>1. User should receive email alert after response is succesful.
+</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>Email should be received</con:expectedResult></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

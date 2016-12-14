@@ -1,0 +1,98 @@
+SDLC
+
+waterfall--> agile
+
+
+Agile-
+scrum
+kanban
+Xp
+
+*****
+
+requirements, design, develop, test, maintain
+
+dev sit uat prod
+************
+Sprint-or iteration -1-4 weeks- duration or cycle where team works to deliver assigned userstories from product backlog.
+requirments-design-develop-test-deploy
+Release - move application code into production server/ go live--In agile- we have shorter release cycles-
+every sprint, for every week, for every 2 sprint.
+ProductBacklog - entire requirement + defects from prev requirement + enhanacements
+SprintBacklog - requirements for sprint
+UserStory - requirement
+ProductOwner - Business Analyst - he take care of product backlog who owns the rquirements and he is one who gets requirements 
+from endClient/business 
+ScrumMaster - ProjectManager - who assign userstories to scrum team and montior team and coordinate b/n team and PO
+ScrumTeam  - PO, SM, dev, testers - 7+/-2
+DailyStandupMeeting- 
+SprintPlanning- begining of the sprint-what userstories should be done in this sprint
+SprintReview - end of the sprint--demo of the product to PO
+SprintRetroscpective - process review - whats wrong in agile process and how to overcome issues in upcoming sprints
+StoryGrooming - Analyse requirements and  Any questions to be discussed
+StoryPlanning - estimate the given requirements 
+storyPoints 
+
+*****************
+
+
+ProjectManagementTool/ApplicationLifeCycleManagement tool - manage project lifecycle - requirement- defects
+
+DefectTrackingTool - manage defect lifecycle
+QC- QualityCenters
+
+Rally - PMT
+Jira - dmt- latest versions- pmt
+Kanban-pmt
+QC- dmt
+BugZilla-dmt
+
+*************
+
+Blocker/ShowStopper
+
+issue - Dev team, deployment team, DBA team, server is down........
+
+*****************************
+
+
+defect -
+
+id
+desc
+actual expected
+priority  - how quickly the defect should be fixed
+severity - how it is effecting/impact on business, finanacial loss, 
+iteration/sprint
+release
+expectedDate
+sceenshot/log files
+
+***
+
+eg:
+
+
+cart functionalty not working fine in ecommerce application - high priority, high severity
+somehwre in nav links - one some link click - I am being logged out - Low Priority, High Severity
+amazon logo or name incorrect- highPriority , low severity
+some typos in rarely visited screens - low proprtiy, low severity
+
+
+
+
+
+http://www.ca.com/us/trials/ca-agile-central-trial-editions.html
+
+
+
+
+UserLogin -- requirements
+testcases
+defects
+
+
+
+
+
+

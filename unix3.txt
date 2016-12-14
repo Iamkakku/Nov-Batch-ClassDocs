@@ -1,0 +1,110 @@
+vi fileName.sh
+i
+.....commands...
+
+esc, :, wq
+
+vi fileName.sh
+esc+i
+.....commands...
+
+esc, :, wq
+
+variables - to store and access data
+
+a=10, b=5
+
+result = a+b;
+
+set permission to execute
+chmod +x fileName.sh
+
+
+execute the script:
+sh fileName.sh
+./ fileName.sh
+
+
+env - to see al env vars
+export envvarname=path
+
+arithmetic operations:
+
++
+-
+\*
+\
+%
+
+
+cmd line args:
+
+
+sh add.sh 7 8 9
+
+count of all cmd line args- $#
+x=$1;
+y=$2;
+
+$3....$n
+result=x+y;
+
+
+read data while execution using read cmd.
+
+
+head -5 logFile.sh | sort > newLog
+
+sort simple.txt | uniq
+
+$? = to observer success of prev statements
+
+top - to see all the main processes on ur machine
+
+ps- only currently active processes on machine
+
+netstat - to view all n/w connections to your machine
+
+decision making statements
+loop statments
+
+if(num > 0)
+ it is positive
+ 
+ else if (num < 0)
+ id is negative
+ 
+ 
+ switch(day)
+ case mon : it is mon
+ case tue : it is tue
+ case wed : it is wed
+ case thu : it is thu
+ 
+ loop:
+ 
+ print all numbers till 10
+ i=0
+ while(i<10){
+ print hello
+ i++;
+ }
+ 
+ for(int i in 1 2 3 4 5)
+ print hello
+ 
+ 2*1=2
+ 2*2=4
+ 
+ files in given dir- find subDir -name "file*"
+ 
+ http://www.freeos.com/guides/
+http://www.linuxjournal.com/content/bash-arrayslsst/
+http://www.folkstalk.com/2011/12/101-examples-of-using-find-command-in.html
+
+
+
+
+
+
+

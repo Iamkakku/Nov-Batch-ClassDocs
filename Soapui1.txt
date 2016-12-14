@@ -1,0 +1,115 @@
+What is API?
+
+Webservices:
+
+What is a webservice?
+
+Webservice is a piece of software/function that can be accessed by other programs over the web.
+
+
+RPC
+SOAP
+REST API's
+
+
+EmiCalculator - written a program in java which takes some inputs and gives you required output
+
+inputs- amount, tenure
+calc based on interest rate, tenure and amt
+output- EMI
+
+public Integer emiCalc(int amount, int tenure){
+//calc
+return emi;
+}
+
+
+Citi
+
+wellsfargo
+chase
+
+**********************************
+How Qa test webservices?
+1. Go through the specifications(docs) to understand functionality of webservice.
+2. Analyse input parameters to be passed and what response you are expecting.
+3.  Functionalty Testing - You will test actual response  by adding assertions.
+What kind of assertions:
+status code
+header information - content type, content length
+actual elements
+actual data
+data order
+count of data
+valid/invalid
+boundary condtions
+
+4. securityTesting
+5. LoadTesting
+
+********************
+
+SoapUI - It is tool to test webservices.It was initially developed to test SOAP based websercvices
+but latest SoapUI tool versions support testing both Soap and Rest webservices.
+
+The tool itself is written in Java language.
+*******
+
+assertion is statement that makes sure actual = expected in programs or in tools. 
+
+***************
+Soap websrvices:
+
+Soap is a protocol. It follows WSDL standards.
+WSDL- webservice definition language.
+WSDL - defines operations, namespace, messages, porttypes,parmaters which are used by webservice.
+
+Soap webservices trasfers data (request and response) through xml format only
+All the request and response parameters are binded inside soap envelope.
+<soap:envelope  namespace>
+<soap:header/>
+<soap:body>
+<country>US</coubntry>
+</soap:body>
+</soap:envelope>
+
+It has inbuilt ws security.
+
+****************
+Rest APi's
+
+Rest is an architecture.
+It uses http methods to define its operations.
+
+Mainly CRUD operations are concerned in Rest apis:
+
+Api to create user - post
+update the user details - put
+delete the user - delete
+retrieve the user - get
+http methods: get, put, post, delete, trace, head, options
+
+facebook apis:
+http://facebook.api.com/users - post
+register with fb: create user account 
+name
+mailid
+adress
+dob
+pwd
+
+response- id is created for user
+
+update profile :
+
+
+http://facebook.api.com/users/id=2030 - put
+city
+zipcode
+
+
+details updated succesfully
+
+
+
+

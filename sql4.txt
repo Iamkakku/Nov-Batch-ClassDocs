@@ -1,0 +1,92 @@
+Joins
+
+
+--give me emp id, emp name and dept id and deptname for all employees in company
+
+natural join
+--select hr.employees.first_name, hr.employees.employee_id, hr.departments.department_name,department_id, manager_id from hr.employees 
+--natural join hr.departments;
+
+inner join with using
+--select hr.employees.first_name, hr.employees.employee_id, hr.departments.department_name,department_id from hr.employees 
+--join hr.departments  using (department_id);
+
+inner join with on
+--select e.first_name, e.employee_id,d.department_name,e.department_id from hr.employees e
+--join hr.departments d  on (e.department_id = d.department_id);
+
+--outer join
+
+
+
+--get job id, job title and emp name
+
+--select e.first_name,d.department_name, e.department_id empDeptId, d.department_id deptDeptId from hr.employees e 
+--right outer join hr.departments d on (e.department_id=d.department_id);
+
+--employees without department
+
+--departments without employee
+
+--select * from hr.departments where location_id is null;
+
+--23  - 27 - 43
+--select count(*) from hr.locations  l  left outer join hr.departments d  on (l.location_id=d.location_id);
+
+--we want to find employers who are managers - self join
+SELECT e.last_name emp, m.last_name mgr
+
+FROM hr.employees e JOIN hr.employees m
+
+ON (e.manager_id = m.employee_id);
+
+
+-- join with more than 2 tables or 3 way joins
+
+SELECT e.employee_id, l.city, d.department_name
+
+FROM hr.employees e
+
+JOIN hr.departments d
+
+ON d.department_id = e.department_id
+
+JOIN hr.locations l
+
+ON d.location_id = l.location_id;
+
+
+
+-- non equi join 
+
+SELECT e.last_name, e.salary, j.min_salary
+
+FROM hr.employees e JOIN hr.jobs j
+
+ON e.salary
+
+BETWEEN j.min_salary AND j.max_salary;
+
+
+select count(*) from hr.jobs;
+
+select count(*) from hr.departments;
+
+
+-- cartesian product or cross join
+select count(*) from hr.jobs,hr.departments;
+
+select count(*) from hr.jobs cross join hr.departments;
+
+-- fetch only 10 records from employee table
+
+select * from hr.employees where rownum <=10;
+
+
+
+-- find the employee with second highest salary
+
+--sub queries 
+select max(salary) from hr.employees where salary not in  (select max(salary) from hr.employees);
+
+

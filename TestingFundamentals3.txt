@@ -1,0 +1,210 @@
+ManualTesting:
+
+Disadv:
+
+TimeConsuming
+Human Error
+More resources
+Cost Ineffective
+Redundant taks again and again
+
+
+Automation :
+
+Save Time and Resources
+
+
+verify all links are working properly in given page
+
+
+When we cannot go for automation:
+
+
+start new automation fw from scratch with short dead lines is not possible
+
+*********************
+Test fw:
+CommonFuntionalities:
+
+Reading data from excel
+creating log files
+Takescreen shot
+creating browser object for mutiple browsers
+connecting to db
+connecting to restapi
+
+******************
+
+applications by one company  can be used by other company-b2b
+applications  by one company used by end users-b2c
+b2c, b2b
+
+
+TestPlan - QA mgr, TestLead
+
+what to do and when to do
+Scope- requirements
+Objective
+
+Plan:
+
+UnitTesting
+SmokeTesting
+Functionality
+Usability
+Accesbility
+ConfigurationTesting
+
+Environment
+
+Resources
+
+DefectManagementTool
+
+
+
+TestStrategy - ProjectMgr
+How to do it
+
+
+UnitTesting - 
+Entry Criteria - individual modules are done 60%
+ExitCriteria- all unit test cases are successful
+
+SmokeTesting-
+Entry Criteria - dev is done and until testing is done
+ExitCriteria- priortiy testcases are working fine
+
+Functionality- 
+Entry Criteria
+ExitCriteria- 70% testcases are sucees and prioroity defects are fixed.
+
+Usability-
+Entry Criteria
+ExitCriteria
+
+Accesbility-
+Entry Criteria
+ExitCriteria
+
+ConfigurationTesting
+
+
+TestCaseTemplate
+
+Tools&Environment
+mac
+windows
+Rally-PMt
+Jira-DMT
+Jenkins-CI
+
+
+TestPlan and TestStrategy and TestCases sample:
+http://sce.uhcl.edu/helm/RUP_course_example/courseregistrationproject/artifacts/test/plans/test_plan_arch.htm
+
+https://dev.talentscreen.io/
+write testplan and test strategy for login with google and subjects, categories.
+
+waterfall:
+50 requirements- 45
+testcases for 5 requirememts are missed
+
+agile----3-4 userstories- demo= dailystandup 
+
+**********************
+Bug/Defect/Issue:
+
+That which deviates from expected requirements
+actual vs expected is not matching
+
+
+ClientSide Logs, N/w tabs in browser
+Db- queries
+Deployment issue
+server logs 
+
+
+Defect:
+id
+desc
+steps to reproduce
+priority - how imp it is to business
+severity - how it is effecting revenue of business
+expected
+actual
+screenshots, logs
+browser
+version
+OS
+build number - 39426
+sprint
+release
+estimation date
+
+p1,p2,p3,p4,p5,p6,p7
+***************************
+
+
+
+
+
+
+can one server processs billions of reqs?
+
+
+multiple servers, clustering , caching, sessions, cookies
+
+
+google- client req on browser
+firewall- to prevent malicious attacks
+loadbalancer- balances load by some algorithms - round robin, random order.....
+
+webserver - static http requests- html pages, images....
+apache http, microsoft IIS
+application server - dynamic data retrival
+tomcat, jboss, weblogic, ibm -websphere, 
+Db server- db request
+
+to maintain performance:
+effective cpu, memory and resource utilistion:
+
+
+efficient coding without memory leaks, without time taking alogorithms
+db - queries should be efficient, indexes, db con pools, caching
+browser - caching, sessions, cookies
+
+sit env - replica of prod env
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

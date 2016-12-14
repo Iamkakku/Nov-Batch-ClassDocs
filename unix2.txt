@@ -1,0 +1,80 @@
+-rw-r--r--
+
+10 char- that describes permissions on file or dir
+
+user
+group
+all
+
+
+d - its a directory
+rwx - read write execute permissions
+rwx
+rwx
+
+chmod
+
+
+pwd
+ls
+ls -a
+ls -l
+cd dirname
+cd .. - one dir back from current dir
+. - current dir
+~ - root directory
+cp
+mv
+rm 
+rmdir
+
+move a file from curr directory to a dir under root directory
+
+mv testfile ~/dirNew
+
+move a file from root directory to a curr directory
+mv ~/testFile .
+
+cat fileName - to display content to file
+cat > fileName - to add content to file
+cat >> fileName - to append content to file
+
+to back to prompt from cat - ctrl+d
+
+editors in unix like vi editor- basically used for shell scripting
+vi fileName - enter data
+to back to shell- esc, :, wq(one by one)
+
+
+less- display filedata in pages when data is  huge
+to go back from less to prompt- press q
+you can also search for word using less  by giving "/word"
+
+grep- search
+
+grep -c
+
+
+wc-wordcount
+wc -l
+wc -w
+
+whatis
+apropos
+who
+
+
+chmod
+| - pipe to combine more than 1 command
+
+
+ps
+jobs
+kill 
+bg
+
+
+
+
+
+

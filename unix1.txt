@@ -1,0 +1,60 @@
+Unix - it is an Operating System
+
+multiusers and multitasking
+
+server logs 
+
+Unix- GUI
+Also we use command line interface
+
+OperatingSystem - it is responsible to execute all programs on mcahine and acts as interface netween user and machine.
+
+dos
+windows - vista, xp, 8, 10 - c++
+unix
+-solaris, AIX
+linux
+ubuntu
+
+osx - apple - objective C and c 
+kernel- c 
+
+android- mobile operating system - 4-lollipop, 5- jellybean, 6-mashallwmallow
+IOS-mobile operating system
+
+
+tasks done by OS:
+FileManagement - 
+DeviceManagement -
+
+i/p - keyboard, mouse, touchscreen
+o/p - monitor
+
+audio driver
+
+printer - install drivers to connect system and printer
+
+MemoryManagement -  rom, registers,   ram- volatile 
+ProcessManagement - cpu, disk space, network
+
+windows also has cmd prompt but it do not have extensive cmds like unix.
+batch commands - set of commands to be exceuted on windows to do any task
+
+single processor 
+dual core 
+quad core
+octa core
+
+processors manufacturers- intel, amd...
+
+
+Unix - file or process
+
+kernel - hub of OS which executes all programs
+shell - is a interface netween user and kernel.
+
+
+go to could.google.com
+go to console
+first time user- create sample project
+activate google cloud shell

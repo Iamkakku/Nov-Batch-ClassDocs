@@ -1,0 +1,175 @@
+dev qa stage prod
+levels of testing:
+
+unittesting-
+
+public int sum(int a, int b){
+return a+b;
+}
+
+public void sumTest(){
+ sum(4,5);//9
+ sum(-4,-5);//-14
+ sum('a','b');
+ sum(0,0)
+ sum(40.56, 30.56)
+}
+
+TDD - test driven development
+Calculator - basic coding
+unit test cases- 15 test cases - 7 pass 8 failed
+make changes to the code - 12 passed - 3 failed
+18testcases
+testcases/scripts are driving the developement - thats reason they call TestDrivenDevelopment
+main adv- early stages most of defects are identified and fixed
+
+integration testing
+
+system testing
+
+user acceptance testing
+
+SystemIntegrationTesting:
+
+Types of testing:
+
+SmokeTesting - priority test cases as per requirement , subset of functional testcases
+
+Functionality Testing
+
+Usability Testing - look and feel
+
+color 
+size
+font specifications
+layouts
+links- broken links-
+3 click rule
+responsive design- adjusting to the given screen size without losing content of application
+ajax - loads data parallely but not synchronously
+infinite scrolling
+paginations
+typos
+resolutions
+
+Performance Testing - 
+Load Testing -simultaneous requests from multiple users
+VolumeTesting - with huge volumes of data
+StressTesting- finding breaking point of the application- 
+
+500 users -- 
+1000 users - breaking point
+
+SecurityTesting -
+Authentication- uname, pwd, touchBased-finger prints, securityQuestions, captcha images, retinascanning, smartCards, otp,SingleSignOn
+Authorization- roles and permissions- admin role, userrole, prime user, normal user, 
+Vulnarabilties:
+CrossSiteScripting- trying to hack the application/system using malicious code/scripts
+SQL Injection-
+DDOS
+
+Refer Owasp for more details on security testing
+
+Localization and internationalisation
+
+timezone, timings
+
+Accesibilty:/ada compliant
+text to speech conversions
+voice recognition
+soft buttons
+html - aria attributes
+alt texts
+
+
+Configuration and compatibility:
+
+multiple browsers
+multiple OS
+
+RegressionTesting - making sure all the properly working functionalities are not broken bcz of defect fix or bcz of new enhancements.
+Retesting- test specific raised defect 
+
+InstallationTesting
+**************************
+
+uat
+alpha testing -  within company releae product and internal employers of company test it while using it.
+beta testing --   release product  to end users and users test it while using it.get their feedback or complaints and work on it.
+
+
+prod/live:
+prod validation testing 
+
+*********************************
+Static Testing - requirements, documents, walkthroughs, inspections
+Dynamic Testing:
+
+BlackBoxTesting - testing application without knowing the internal details (code, design)
+
+Equivalence Partioning:
+vaid/invalid
+ 1-100 - 50,60
+ <1- -1,-2
+ >100- 101,200
+ 
+ dec1 - dec 31 -- additional offer-20%
+ 
+ before dec1
+ after dec 31
+ dec1 -dec 31
+ 
+ 
+ 
+BoundaryValue Analaysis:
+
+0..1...100-101
+nov-30-1st- 31st-jan1st
+
+WhiteBoxTesting - testing application by knowing the internal details (code, design)
+
+given num is div by 3 and 5
+
+
+public String isDiv(int input){
+
+
+if(input%3==0 && input%5==0){
+return "div by both 3 and 5";
+}
+else if(input%3==0){
+return "div by both 3";
+}
+
+else if ( input%5==0){
+return "div by both 5";
+}
+
+else{
+return "not div by any 3 or 5";
+}
+}
+conditions- 4
+statements- 4
+decisions- 3
+
+15,45
+9
+25
+28
+
+
+memory leakage..
+
+Assignment:
+give smoke test cases and functional test cases for whiteboxqa.com/recordings page
+
+
+
+
+links to refer:
+http://www.webopedia.com/TERM/D/DDoS_attack.html
+https://www.w3.org/WAI/intro/people-use-web/principles#distinguishable
+https://www.w3.org/International/questions/qa-mono-multilingual.html
+https://www.w3.org/WAI/intro/people-use-web/principles
+http://www.softwaretestinghelp.com/sample-test-cases-testing-web-desktop-applications/

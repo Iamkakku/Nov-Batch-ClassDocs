@@ -1,0 +1,59 @@
+RestAPI:
+
+crud operations:
+
+get - retrieval - say u pass order id and get order details
+get wil not have request body
+post - creation of resource-  give order detials - order gets created with new id
+post will have request body
+put - updating the resource - to update existing order id details 
+delete - delete the resource - delete the order with order id 
+
+what to test:
+statuscode
+contetnt type, length - headers
+actual response 
+
+Different AUthentication types:
+Auth - to secure the api's
+Basic - user eneters uname and pwd , token id is generated which is to be persisted for further requests eg: talentscreen
+OAuth - key and access tokens are generated as per api's - eg:twitter apis
+public api's - api key - eg:google
+
+
+Load Testing - performance of the api
+tps - threads per second
+bps - bytes per second
+
+Threads- no fo concurrent/parallel user requests
+
+Strategy-  simple, burst, variance
+
+TEstDelay -Time in ms b/n each batch of requests
+Random - random factor for test load 
+eg: test delay -400, rf =0.5
+delay is distributd  b/n 400*0.5 - 
+so delay  will be 200-400
+
+
+
+o/p:
+
+min- shoertest time step has taken to execute(ms)
+max- longest time step has taken to execute(ms)
+avg- avg time step has taken to execute(ms)
+cnt - no of time sstep has been executed
+err- assertion Errors
+
+Security Testing - SoapUI tool supports in built
+
+
+
+
+SoapMock service: used when you are not able to user actual service
+
+https://www.soapui.org/soap-mocking/service-mocking-overview.html
+Data Driven Testing- running same test step with different set of data
+SoapUIPRo- DataSource and DataSourceLoop step for data driven testing
+
+

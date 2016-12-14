@@ -1,0 +1,150 @@
+select * from hr.employees where hire_date > '1-Jan-05';
+
+select next_day(sysdate,'friday') from dual;
+
+select months_between('1-Jun-05','1-Jan-05') from dual;
+
+select ADD_MONTHS (sysdate,6) from dual;
+
+select sysdate from dual;
+
+select trunc(to_date('16-Nov-16'),'MONTH') from dual;
+
+
+select trunc(sysdate, 'year') from dual;
+
+select * from hr.employees where employee_id = '100';
+
+select salary+'1000' newSal from hr.employees;
+
+dd-mon-rr dd- mm-yyyy
+
+select employee_id, to_char(hire_date, 'dd-mon-yy') hireDate, hire_date, to_char(salary, '$99,999.00') from hr.employees;
+
+select TO_DATE('14-jan-16', 'dd-mon-yy') from dual;
+
+select * from hr.employees where hire_date > '1-Jan-05';
+
+dd-mon-rr dd-mon-yy
+
+current date  - 17-nov-16 0-49
+
+use this date - 16-nov-85
+
+if todays/current date  is within 0-49 (2016), u r trying to fetch date between 50-99 -eg: 85 rr format gives prev century date(1985)
+2116 2016
+
+rr format- yy always gives current century
+you are in 0-49 and trying to access 50-99
+you are in 50-99 and trying to access 0-49
+select to_char(to_date('1-jun-60', 'dd-mon-yy'), 'dd-mon-yyyy') from dual
+
+select commission_pct, nvl2(commission_pct,0.5, 0) newCom,  employee_id from hr.employees;
+
+select * from hr.employees where hire_date > '1-Jan-05';
+
+select next_day(sysdate,'friday') from dual;
+
+select months_between('1-Jun-05','1-Jan-05') from dual;
+
+select ADD_MONTHS (sysdate,6) from dual;
+
+select sysdate from dual;
+
+select trunc(to_date('16-Nov-16'),'MONTH') from dual;
+
+
+select trunc(sysdate, 'year') from dual;
+
+select * from hr.employees where employee_id = '100';
+
+select salary+'1000' newSal from hr.employees;
+
+dd-mon-rr dd- mm-yyyy
+
+select employee_id, to_char(hire_date, 'dd-mon-yy') hireDate, hire_date, to_char(salary, '$99,999.00') from hr.employees;
+
+select TO_DATE('14-jan-16', 'dd-mon-yy') from dual;
+
+select * from hr.employees where hire_date > '1-Jan-05';
+
+dd-mon-rr dd-mon-yy
+
+current date  - 17-nov-16 0-49
+
+use this date - 16-nov-85
+
+if todays/current date  is within 0-49 (2016), u r trying to fetch date between 50-99 -eg: 85 rr format gives prev century date(1985)
+2116 2016
+
+rr format- yy always gives current century
+you are in 0-49 and trying to access 50-99
+you are in 50-99 and trying to access 0-49
+select to_char(to_date('1-jun-60', 'dd-mon-yy'), 'dd-mon-yyyy') from dual
+
+select commission_pct, nvl2(commission_pct,0.5, 0) newCom,  employee_id from hr.employees;
+
+
+SELECT first_name, LENGTH(first_name) "expr1",last_name, LENGTH(last_name) "expr2", NULLIF(LENGTH(first_name), LENGTH(last_name)) result
+
+FROM hr.employees;
+
+SELECT last_name, commission_pct,manager_id,COALESCE(commission_pct,manager_id, -1) comm FROM hr.employees ORDER BY commission_pct;
+
+RR
+SELECT last_name, TO_CHAR(hire_date, 'DD-Mon-YYYY') FROM employees WHERE hire_date < TO_DATE('01-Jan-90','DD-Mon-RR');
+SELECT last_name, TO_CHAR(hire_date, 'DD-Mon-YYYY') FROM employees WHERE hire_date < TO_DATE('01-Jan-90','DD-Mon-YY');
+– The default date display format is DD-MON-RR.
+select to_char(to_date('12-apr-88','dd-mon-RR'),'yyyy') from dual;
+
+
+SELECT last_name, job_id, salary,
+
+CASE job_id WHEN 'IT_PROG' THEN 1.10*salary
+
+WHEN 'ST_CLERK' THEN 1.15*salary
+
+WHEN 'SA_REP' THEN 1.20*salary
+
+ELSE salary END REVISED_SALARY
+
+FROM hr.employees;
+
+SELECT last_name, job_id, salary,
+
+DECODE(job_id, 'IT_PROG', 1.10*salary,
+
+'ST_CLERK', 1.15*salary,
+
+'SA_REP', 1.20*salary,
+
+salary)
+
+"Revised_Salary"
+
+FROM hr.employees;
+
+group or aggregate functions
+select count(nvl(salary,0)) from employees;
+
+select count(distinct salary) from employees;
+
+select max(salary), min(salary), avg(salary),count(distinct salary)  from employees;
+select sum(salary) from employees;
+
+the columns in select statement should be part of group by clause or it should be within any group function
+select max(salary),DEPARTMENT_ID, job_id from employees group by DEPARTMENT_ID, job_id;
+
+
+
+
+select * from hr.employees;
+
+select * from hr.departments;
+
+ give me the sum of salaries for employees  in each department
+
+select department_id ,sum(salary) from hr.employees group by department_id having department_id=90;
+select * from hr.jobs;
+
+select department_id , job_id, max(salary) from hr.employees group by department_id, job_id order by department_id

@@ -1,0 +1,77 @@
+--select e.first_name,e.last_name,d.department_name,d.department_id from hr.departments d  full outer join hr.employees e on e.department_id = d.department_id;
+
+
+--write a query to fetch emp firstname, department id, salary of all employees who have same salary as the min salary of sales department
+
+--select first_name, department_id, salary from hr.employees where salary = (select min(salary) from hr.employees group by department_id having department_id=80);
+
+
+-- all departments based out of location - US
+--select * from hr.departments;
+
+--select * from hr.locations;
+
+--select * from hr.departments where location_id in (select location_id from hr.locations where country_id ='US');
+
+-- write a query to find employees whose salary is same as employee- 141 and whose job_id is  same as employee 143
+--select job_id from hr.employees where employee_id=143;
+
+--select salary from hr.employees where employee_id=141;
+
+
+--select * from hr.employees where salary = (select salary from hr.employees where employee_id=141)
+--and job_id = (select job_id from hr.employees where employee_id=143)
+
+--write a query to find departments whose min salary is greater than min salary of sales department
+--select min(salary) from hr.employees where department_id=80;
+
+--select min(salary), department_id from hr.employees group by department_id having min(salary) > (select min(salary) from hr.employees where department_id=80);
+
+
+
+--fetch employees whose salary is less than salaries of IT_prog
+
+--any- 9000 or 6000 or 4800 or 4200
+
+-- all 9000 and 8200 and 7700 and 7800 and 6900
+
+--select salary from hr.employees where lower(job_id)='fi_account';
+
+select * from hr.employees  where salary < all(select salary from hr.employees where lower(job_id)='fi_account');
+
+select * from hr.employees  where salary < any(select salary from hr.employees where lower(job_id)='fi_account');
+
+
+Create table Students(
+
+first_name varchar2(20) not null,
+last_name varchar2(20),
+id number primary key,
+address varchar2(20),
+dob date,
+email varchar2(40) unique
+
+
+)
+
+
+
+
+alter table Students drop column address;
+
+
+
+alter table Students add  address varchar2(20);
+
+alter table Students modify  address number;
+
+alter table Students add constraint uni_cst unique(address);
+
+
+insert into Students1 values ('swetha', 'singh', 2,'fremont', '12-jun-88', 'b@b.com');
+
+insert into Students1(first_name,id,email) values ('shilpa', 3, 'a@a.com');
+
+
+
+
