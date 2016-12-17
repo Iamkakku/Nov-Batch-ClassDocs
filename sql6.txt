@@ -20,6 +20,10 @@
 --query to find top 5 highest salaries
 --select * from (select distinct(salary) from hr.employees order by salary desc) where rownum<=5;
 
+6th - 10th highest sal:
+select * from(select distinct(salary) from hr.employees where salary not in(select * from(select distinct(salary) 
+from hr.employees   order by salary desc) where rownum <= 5)order by salary desc) where rownum<=5;
+
 
 create sequence id_seq start with 1 increment by 1 maxvalue 100000 nocache nocycle
 
