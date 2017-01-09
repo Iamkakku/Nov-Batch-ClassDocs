@@ -1,0 +1,75 @@
+@Test annotation's- attributes
+dependsOnMethods - 1. It would not execute if there is any error in the method on which it is depending upon.
+2. It guarantees the order of execution
+
+HardDependency
+dependsOnMethods - 1. It would not execute if there is any error in the method on which it is depending upon.
+2. It guarantees the order of execution
+
+
+SoftDependency - alwaysRun = true
+dependsOnMethods - 1. It will execute even if there is any error in the method on which it is depending upon.
+The main advantage of soft dependency is it guarantees the order of execution
+
+dependsOn can be used with groups too- dependsOnGroups
+
+alwayRun=true can be used with any method that should execute even when it is not part of the groups included.
+
+invocationCount- helps to run the same testcase multiple times
+threadPoolSize- allows to specify how many threads to be used for the given invocationCount
+
+invocationTimeOut- whetner the invocation is executing in given time
+
+timeOut- whetner the invocation is executing in given time
+enabled - to enable or disbale a given test method
+
+expectedException- to assert for the exceptions
+
+
+priority- which helps to prioritise the testcases and maintain order.
+
+
+
+testng-generates default reports under test-output folder
+
+testng-results.xml
+emailable-report.html
+testng-failed.xml - help to run only the failed test cases
+
+
+parameters- to read data from testng-xml
+dataprovider- to read data for external files
+
+
+
+Multiple assert statments in same test method- if one assert fails then remaining assert stmts or any code 
+within the same method after the assert failure will not be expected
+But the remaining test methods if they are not dependent on failed test- they wil execute.
+
+
+SoftAssert also provides assert methods and it works like verify i.e.,
+it executes the remaining code even if condition fails
+
+assert methods have overloaded versions to accept string message
+which would be displayed only when assertions fail.
+
+parallel=false- this is under suite element in testng.xml
+parallel= classes- it runs each class in a different thread.
+methods- it runs each method in a different thread.
+tests- it runs each test in a different thread.
+instances- it runs each instance of class in a different thread.
+
+
+junit=true in suite element of testng xml helps to run junit test classes from testng xml
+
+IReporter
+ITestListener
+these both can be implemented to provide custom reports rather than using default reports
+and it can be configured in testng.xml using listener element:
+class  TestNGCustomReportListener implements Ireporter{.....custom implemenation...}
+eg:
+   <listeners>
+         <listener class-name="com.easy.TestNGCustomReportListener" />
+    </listeners>
+
+

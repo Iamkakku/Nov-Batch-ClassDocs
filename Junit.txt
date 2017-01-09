@@ -1,0 +1,84 @@
+
+public int sum(Integer a,Integer b){
+if(null!=a && null!=b){
+return a+b;
+}
+}
+
+
+input- method parameters
+output- return type
+4,5
+0,0
+-3,-5
+null,67
+
+public void static main(){
+int result = sum(4,5)
+if(result==9){
+log(working fine)
+}else{
+log(error in program )
+}
+
+sum(0,0)
+sum(4,-4)
+
+sum(4,null)
+}
+
+public class testClass{
+
+@test
+public void test(){
+assertEquals(sum(0,0), 9);
+}
+
+}
+
+
+Framework - Semifinished application which tries to avoid the redundant code and make development easy
+
+UnitTesting- test the smallest /individual unit of code so that the defects are figured out at early stages of testing.
+
+TDD- tests are driving the development.
+
+
+UnitTesting fws- TestNG and JUnit
+
+Xunit architecture - smalltalks sunit
+dot net- nunit
+java -junit
+
+to setup junit in project:
+
+1. download and add junit jars to classpath
+2. using eclipse - roght click on project- properties- java build path- add library-junit -ok
+3. using maven - pom.xml - dependency
+
+
+
+public void cart(){
+
+
+sum()
+}
+
+Annotations - metadata added to class which is used by compiler to do specific task
+They can be used by compiler for checking some rules(eg:Override) and also to perform 
+some executions.
+
+
+
+junit3- test class extends TestCase
+setup and tearDown- before and after evry method
+every test method should be appended by test before method name
+junit4- annotations
+
+@Test
+@Before
+@After
+@BeforeClass- this should be static method
+@AfterClass- should be static method
+@Ignore
+timout is attribute within Test Annotation
