@@ -1,0 +1,42 @@
+Oracle Db setup url: https://www.youtube.com/watch?v=0NLsJQCvKXY
+
+Go to https://www.oracle.com/index.html:
+sign in - mine - rekhagayathri1288@gmail.com/Gayathri3
+go to downloads- oracle DB, accept license and download
+oracle-11.2.0.1.0-  Microsoft Windows (x64)	File 1, File 2  (2GB)  See All - click on see all
+download both zip files and extract in local
+then go to database2 folder and copy stage-components -all files to databse1-stage-components
+run setup of database1
+do next next...in between u set pwd- and finally come to password management - unlock and set pwds for whatever
+schemas u want- i did for sys,sysdba,he,scott- we can do this thru cmd line also.
+
+save gui url somewre and later login and see if instalation is fine.....then finish
+
+ go to cmd line
+ 
+ set oracle sid i.e., global db name on first screen - i.e., set ORACLE_SID=ORCL
+ sqlplus scott/Inno123 - connected to DB
+ select name from v$database- u shud see ORCL
+Now quit and exit...:) done...
+
+trainin machine-new db-https://localhost:1158/em/ system/Inno123
+local db gui oracle url - https://localhost:1158/em, pwd-Inno123
+
+users
+
+SYS
+SYSDATA
+HR
+SCOTT
+
+jmeter: syntax: jdbc:oracle:thin:@//host:port/service
+i.e., jdbc:oracle:thin:@//localhost:1521/orcl.168.2.2
+
+sqldeveloper:
+username:scott
+pwd: Inno123
+host: localhost
+port:1521
+SID: ORCL
+service name:orcl.168.2.2
+
