@@ -1,18 +1,20 @@
 
 first time to new repo:
 git init
-git add foldername
-git status - to see status
-git commit -m "First commit" - local repo
+git add foldername or .
+git status ( to see status)
+git commit -m "First commit" ( comits to local repo)
 git remote add origin remoterepositoryURL
-git push origin master- push master to origin
+git push origin master ( push master to origin)
 
+
+remove git init :  rm -rf .git
 
 git log -5 --oneline- to see changes 
 
 existing folder changes  to existing repo:
 
-git add .
+git add 
 git commit -m "First commit"
 git push origin master
 
@@ -73,4 +75,26 @@ git fetch upstream
 git merge upstream/master
 git push origin master
 -------
+gerrit
 
+curl hooks
+
+git commit --amend
+
+to avoid merge conflicts- abandon
+
+git push origin HEAD:refs/for/master
+____________
+
+curl -Lo .git/hooks/commit -msg http://review.innova-path.com
+git fetch --all - like update from repo
+git reset --hard origin/master
+git pull origin master 
+
+push is done by senior dev or lead/normal people do pull 
+_-----------------
+
+
+
+clone-import as git-- import as new proj wizard-java proj- select cloned local dir
+convert to maven
