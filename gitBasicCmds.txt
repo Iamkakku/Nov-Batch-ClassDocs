@@ -60,7 +60,7 @@ Push the changes in your local repository to GitHub.
 git push origin master
 # Pushes the changes in your local repository up to the remote repository you specified as the origin
 
-git pull origin master- get updates from original repo
+git pull origin master- get updates from original repo and merge ..It is basically fetch + merge 
 *****************
 git clone cloneurl
 git remote -v -- this is done when cloning autmatically
@@ -91,10 +91,21 @@ git fetch --all - like update from repo
 git reset --hard origin/master
 git pull origin master 
 
-push is done by senior dev or lead/normal people do pull 
 _-----------------
 
 
+clone latest branch
+
+FirstTime in branch:
+curl -Lo .git/hooks/commit-msg http://review.innova-path.com/tools/hooks/commit-msg  
+git config --global user.email "kpsamuel.ip@gmail.com"
+git config --global user.name "samuel"
+ 
+execue these cmds:
+git fetch --all
+git reset --hard origin/master
+git pull origin master
+************
 
 clone-import as git-- import as new proj wizard-java proj- select cloned local dir
 convert to maven
